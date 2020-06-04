@@ -44,7 +44,7 @@ resource "ibm_is_lb_pool_member" "z1_member" {
   lb             = ibm_is_lb.webserver_lb.id
   pool           = ibm_is_lb_pool.web_pool.id
   port           = 80
-  target_address = ibm_is_instance.z1_instance1.primary_network_interface.primary_ipv4_address
+  target_address = ibm_is_instance.z1_instance1.primary_network_interface[0].primary_ipv4_address
   weight         = 60
 }
 
@@ -52,6 +52,6 @@ resource "ibm_is_lb_pool_member" "z2_member" {
   lb             = ibm_is_lb.webserver_lb.id
   pool           = ibm_is_lb_pool.web_pool.id
   port           = 80
-  target_address = ibm_is_instance.z2_instance1.primary_network_interface.primary_ipv4_address
+  target_address = ibm_is_instance.z2_instance1.primary_network_interface[0].primary_ipv4_address
   weight         = 60
 }
