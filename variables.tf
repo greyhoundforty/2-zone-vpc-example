@@ -31,5 +31,5 @@ variable "profile" {
 variable "resource_group" {
   type        = string
   description = "Default resource group to deploy resources in to."
-  default     = ""
+  default     = "CDE"
 }
