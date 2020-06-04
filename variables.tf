@@ -10,9 +10,9 @@ variable "zone2" {
   default     = "us-south-2"
 }
 
-variable "ssh_public_key" {
+variable "ssh_key_name" {
   type        = string
-  description = "SSH Key that gets added to deployed instances"
+  description = "Name of SSH key to import. This key should already be created in your VPC. https://cloud.ibm.com/vpc-ext/compute/sshKeys"
   default     = ""
 }
 
