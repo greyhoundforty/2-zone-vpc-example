@@ -36,7 +36,7 @@ resource "ibm_is_instance" "z2_instance1" {
   tags           = ["ryantiffany"]
 
   primary_network_interface {
-    subnet = ibm_is_subnet.z1_subnet2.id
+    subnet = ibm_is_subnet.z2_subnet1.id
   }
 }
 

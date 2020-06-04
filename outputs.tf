@@ -10,9 +10,9 @@ output "cse_source_addresses" {
   value = ibm_is_vpc.vpc1.cse_source_addresses
 }
 
-output "cse_source" {
-  value = ibm_is_vpc.vpc1.cse_source
-}
+# output "cse_source" {
+#   value = ibm_is_vpc.vpc1.cse_source
+# }
 
 output "z1_pgw_fip" {
   value = ibm_is_public_gateway.z1_pgw.floating_ip
