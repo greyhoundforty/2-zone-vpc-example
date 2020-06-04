@@ -38,7 +38,7 @@ resource "ibm_is_security_group_rule" "sg1_app_tcp_rule" {
 }
 
 resource "ibm_is_network_acl" "network_acl" {
-  name           = "${random_id.vpc_name.hex}-nacl"
+  name           = "nacl-${random_id.vpc_name.hex}"
   resource_group = data.ibm_resource_group.group.id
   vpc            = ibm_is_vpc.vpc1.id
   rules {
