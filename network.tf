@@ -15,7 +15,7 @@ resource "ibm_is_subnet" "z2_subnet1" {
 }
 
 resource "ibm_is_floating_ip" "z1_instance1_fip" {
-  name           = "z1-instance1-fip"
+  name           = "z1-fip-${random_id.vpc_name.hex}"
   target         = ibm_is_instance.z1_instance1.primary_network_interface[0].id
   resource_group = data.ibm_resource_group.group.id
 }
