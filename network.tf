@@ -25,7 +25,7 @@ resource "ibm_is_public_gateway" "z1_pgw" {
 
 resource "ibm_is_lb" "webserver_lb" {
   name    = "web-lb"
-  subnets = [ibm_is_subnet.subnet1.id]
+  subnets = [ibm_is_subnet.z1_subnet1.id]
 }
 
 
