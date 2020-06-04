@@ -1,8 +1,9 @@
 resource "ibm_is_security_group_rule" "sg1_tcp_rule" {
-  depends_on = [ibm_is_floating_ip.z1_instance1_fip]
-  group      = ibm_is_vpc.vpc1.default_security_group
-  direction  = "inbound"
-  remote     = "0.0.0.0/0"
+  depends_on     = [ibm_is_floating_ip.z1_instance1_fip]
+  group          = ibm_is_vpc.vpc1.default_security_group
+  resource_group = data.ibm_resource_group.group.id
+  direction      = "inbound"
+  remote         = "0.0.0.0/0"
 
   tcp {
     port_min = 22
@@ -11,10 +12,11 @@ resource "ibm_is_security_group_rule" "sg1_tcp_rule" {
 }
 
 resource "ibm_is_security_group_rule" "sg1_icmp_rule" {
-  depends_on = [ibm_is_floating_ip.z1_instance1_fip]
-  group      = ibm_is_vpc.vpc1.default_security_group
-  direction  = "inbound"
-  remote     = "0.0.0.0/0"
+  depends_on     = [ibm_is_floating_ip.z1_instance1_fip]
+  group          = ibm_is_vpc.vpc1.default_security_group
+  resource_group = data.ibm_resource_group.group.id
+  direction      = "inbound"
+  remote         = "0.0.0.0/0"
 
   icmp {
     code = 0
@@ -23,10 +25,11 @@ resource "ibm_is_security_group_rule" "sg1_icmp_rule" {
 }
 
 resource "ibm_is_security_group_rule" "sg1_app_tcp_rule" {
-  depends_on = [ibm_is_floating_ip.z1_instance1_fip]
-  group      = ibm_is_vpc.vpc1.default_security_group
-  direction  = "inbound"
-  remote     = "0.0.0.0/0"
+  depends_on     = [ibm_is_floating_ip.z1_instance1_fip]
+  group          = ibm_is_vpc.vpc1.default_security_group
+  resource_group = data.ibm_resource_group.group.id
+  direction      = "inbound"
+  remote         = "0.0.0.0/0"
 
   tcp {
     port_min = 80
@@ -34,9 +37,10 @@ resource "ibm_is_security_group_rule" "sg1_app_tcp_rule" {
   }
 }
 
-resource "ibm_is_network_acl" "isExampleACL" {
-  name = "is-example-acl"
-  vpc = ibm_is_vpc.vpc1.id
+resource "ibm_is_network_acl" "network_acl" {
+  name           = "${random_id.vpc_name.hex}-nacl"
+  resource_group = data.ibm_resource_group.group.id
+  vpc            = ibm_is_vpc.vpc1.id
   rules {
     name        = "outbound"
     action      = "allow"

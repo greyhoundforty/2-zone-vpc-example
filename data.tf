@@ -1,5 +1,5 @@
 data "ibm_resource_group" "group" {
-  name = "default"
+  name = var.resource_group
 }
 
 data "ibm_is_ssh_key" "vpc_us_south_key" {

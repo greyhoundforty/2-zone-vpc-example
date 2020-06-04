@@ -28,3 +28,8 @@ variable "profile" {
   default     = "bx2-2x8"
 }
 
+variable "resource_group" {
+  type        = string
+  description = "Default resource group to deploy resources in to."
+  default     = ""
+}
