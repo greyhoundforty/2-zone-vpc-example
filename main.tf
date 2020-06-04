@@ -5,7 +5,7 @@ resource "random_id" "vpc_name" {
 resource "ibm_is_vpc" "vpc1" {
   name           = "vpc-${random_id.vpc_name.hex}"
   resource_group = data.ibm_resource_group.group.id
-  tags           = ["vpc-${random_id.vpc_name.hex}", ryantiffany]
+  tags           = ["ryantiffany"]
 }
 
 resource "ibm_is_instance" "z1_instance1" {
