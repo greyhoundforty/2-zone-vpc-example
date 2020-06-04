@@ -3,7 +3,7 @@ resource "random_id" "vpc_name" {
 }
 
 resource "ibm_is_vpc" "vpc1" {
-  name           = "${random_id.vpc_name.hex}-vpc"
+  name           = "vpc-${random_id.vpc_name.hex}"
   resource_group = data.ibm_resource_group.group.id
 }
 
