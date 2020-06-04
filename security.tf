@@ -1,7 +1,6 @@
 resource "ibm_is_security_group_rule" "sg1_tcp_rule" {
   depends_on     = [ibm_is_floating_ip.z1_instance1_fip]
   group          = ibm_is_vpc.vpc1.default_security_group
-  resource_group = data.ibm_resource_group.group.id
   direction      = "inbound"
   remote         = "0.0.0.0/0"
 
@@ -14,7 +13,6 @@ resource "ibm_is_security_group_rule" "sg1_tcp_rule" {
 resource "ibm_is_security_group_rule" "sg1_icmp_rule" {
   depends_on     = [ibm_is_floating_ip.z1_instance1_fip]
   group          = ibm_is_vpc.vpc1.default_security_group
-  resource_group = data.ibm_resource_group.group.id
   direction      = "inbound"
   remote         = "0.0.0.0/0"
 
@@ -27,7 +25,6 @@ resource "ibm_is_security_group_rule" "sg1_icmp_rule" {
 resource "ibm_is_security_group_rule" "sg1_app_tcp_rule" {
   depends_on     = [ibm_is_floating_ip.z1_instance1_fip]
   group          = ibm_is_vpc.vpc1.default_security_group
-  resource_group = data.ibm_resource_group.group.id
   direction      = "inbound"
   remote         = "0.0.0.0/0"
 
