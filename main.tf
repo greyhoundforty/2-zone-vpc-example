@@ -12,7 +12,7 @@ resource "ibm_is_ssh_key" "sshkey" {
 }
 
 resource "ibm_is_instance" "z1_instance1" {
-  name    = "z1_instance1"
+  name    = "z1-instance1"
   image   = var.image
   profile = var.profile
 
@@ -27,7 +27,7 @@ resource "ibm_is_instance" "z1_instance1" {
 }
 
 resource "ibm_is_instance" "z2_instance1" {
-  name    = "z2_instance1"
+  name    = "z2-instance1"
   image   = var.image
   profile = var.profile
 
