@@ -6,11 +6,6 @@ resource "ibm_is_vpc" "vpc1" {
   name = "${random_id.vpc_name.hex}-vpc"
 }
 
-resource "ibm_is_ssh_key" "sshkey" {
-  name       = "ssh1"
-  public_key = file(var.ssh_public_key)
-}
-
 resource "ibm_is_instance" "z1_instance1" {
   name    = "z1-instance1"
   image   = var.image
@@ -22,7 +17,7 @@ resource "ibm_is_instance" "z1_instance1" {
 
   vpc       = ibm_is_vpc.vpc1.id
   zone      = var.zone1
-  keys      = [ibm_is_ssh_key.sshkey.id]
+  keys      = [data.ibm_is_ssh_key.vpc_us_south_key.id]
   user_data = file("nginx.sh")
 }
 
@@ -37,7 +32,7 @@ resource "ibm_is_instance" "z2_instance1" {
 
   vpc       = ibm_is_vpc.vpc1.id
   zone      = var.zone2
-  keys      = [ibm_is_ssh_key.sshkey.id]
+  keys      = [data.ibm_is_ssh_key.vpc_us_south_key.id]
   user_data = file("nginx.sh")
 }
 

@@ -3,5 +3,5 @@ data "ibm_resource_group" "group" {
 }
 
 data "ibm_is_ssh_key" "vpc_us_south_key" {
-    name = var.ssh_key_name
+  name = var.ssh_key_name
 }
