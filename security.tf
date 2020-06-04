@@ -36,6 +36,7 @@ resource "ibm_is_security_group_rule" "sg1_app_tcp_rule" {
 
 resource "ibm_is_network_acl" "isExampleACL" {
   name = "is-example-acl"
+  vpc = ibm_is_vpc.vpc1.id
   rules {
     name        = "outbound"
     action      = "allow"
