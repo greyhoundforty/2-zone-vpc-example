@@ -34,6 +34,12 @@ resource "ibm_is_lb" "webserver_lb" {
 }
 
 
+resource "ibm_is_lb_listener" "web_lb_listener" {
+  lb       = ibm_is_lb.webserver_lb.id
+  port     = "80"
+  protocol = "http"
+}
+
 resource "ibm_is_lb_pool" "web_pool" {
   name           = "web-pool"
   lb             = ibm_is_lb.webserver_lb.id
