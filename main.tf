@@ -17,7 +17,7 @@ resource "ibm_is_instance" "z1_instance1" {
   profile        = var.profile
   keys           = [data.ibm_is_ssh_key.vpc_us_south_key.id]
   user_data      = file("nginx.sh")
-  tags           = ["vpc-${random_id.vpc_name.hex}", ryantiffany]
+  tags           = ["vpc-${random_id.vpc_name.hex}", "ryantiffany"]
 
   primary_network_interface {
     subnet = ibm_is_subnet.z1_subnet1.id
@@ -33,7 +33,7 @@ resource "ibm_is_instance" "z2_instance1" {
   profile        = var.profile
   keys           = [data.ibm_is_ssh_key.vpc_us_south_key.id]
   user_data      = file("nginx.sh")
-  tags           = ["vpc-${random_id.vpc_name.hex}", ryantiffany]
+  tags           = ["ryantiffany"]
 
   primary_network_interface {
     subnet = ibm_is_subnet.z1_subnet2.id
