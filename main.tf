@@ -40,13 +40,3 @@ resource "ibm_is_instance" "z2_instance1" {
   }
 }
 
-resource "ibm_is_volume" "z1_vol1" {
-  name           = "z1-${random_id.vpc_name.hex}-vol1"
-  profile        = "custom"
-  zone           = var.zone1
-  iops           = 100
-  capacity       = 20
-  resource_group = data.ibm_resource_group.group.id
-}
-
-
